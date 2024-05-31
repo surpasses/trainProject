@@ -5,7 +5,7 @@ import data.apiClient as apiClient
 
 from Node import Node
 from Graph import Graph
-from createRailway import createNetwork
+from src.Railway import createNetwork
 
 graph = Graph()
 stations = apiClient.fetchData()

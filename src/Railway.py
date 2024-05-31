@@ -1,7 +1,7 @@
 from Node import Node
 from Graph import Graph
 from enum import Enum
-from createStations import initStations
+from src.Station import initStations
 
 class Line(Enum):
     T1 = 1
