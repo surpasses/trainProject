@@ -216,7 +216,7 @@ def createNMetro(stations):
 
     
 
-def createNetwork(stations):
+def createNetwork(graph, stations):
     createInnerLine(stations)
     createT9Line(stations)
     createT8Line(stations)
