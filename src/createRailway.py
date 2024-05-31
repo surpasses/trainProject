@@ -26,7 +26,6 @@ def addEdges(g, route, line):
         prev_s = s
 
 def createT9Line(g):
-    # From Normanhurt to Gordon
     route = ["Normanhurst", "Thornleigh", "Pennant Hills", "Beecroft", "Cheltenham", "Epping",
             "Eastwood", "Denistone", "West Ryde", "Meadowbank", "Rhodes", "Concord West", "North Strathfield", "Strathfield", "Burwood",
             "Redfern", "Central", "Town Hall", "Wynyard", "Milsons Point", "North Sydney", "Waverton", "Wollstonecraft", "St Leonards",
@@ -118,8 +117,6 @@ def createMetro(g):
     addEdges(g, route, Line.M)
 
 
-    
-
 def createNetwork(g, stations):
     initStations(g, stations)
     createT9Line(g)
@@ -131,14 +128,4 @@ def createNetwork(g, stations):
     createT2Line(g)
     createT1Line(g)
     createMetro(g)
-    g.display(Line.M)
-    
-    # createT7Line(stations)
-    # createT5Line(stations)
-    # createT4Line(stations)
-    # createT3Line(stations)
-    # createT2Line(stations)
-    # createT1Line(stations)
-    # createNMetro(stations)
-
-    #TODO: ADD ACTUAL ROUTES (Edges)
+    g.displayWhole()
