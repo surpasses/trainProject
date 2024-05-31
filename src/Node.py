@@ -16,9 +16,18 @@ class Node:
             return True
         return False
 
+    # checks whether a node is a neighbour
+    def isAdjacent(self, node):
+        if node in self.adjacent:
+            return True
+        return False
+
     def addAdjacent(self, node):
         distance = geodesic(self.location, node.location).km
         self.adjacent[node] = distance
+
+    def getName(self):
+        return self.name
 
     def __str__(self):
         return f"{self.name} at coordinates ({self.location[0]}, {self.location[1]})"

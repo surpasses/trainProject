@@ -8,7 +8,8 @@ class Graph:
 
     def addEdge(self, from_node, to_node):
         if from_node in self.nodes and to_node in self.nodes:
-            self.nodes[from_node].addAdjacent(self.nodes[to_node])
+            if not self.nodes[from_node].isAdjacent(to_node):
+                self.nodes[from_node].addAdjacent(self.nodes[to_node])
     
     def getNode(self, name):
         if name in self.nodes:
@@ -34,7 +35,14 @@ class Graph:
                 print(f"  -> {adj} with weight {weight}")
 
     def display(self, line):
+        i = 0
         for node in self.nodes.values():
             if not node.checkLine(line):
                 continue
+            i += 1
             print(node)
+            for adj, weight in node.adjacent.items():
+                if self.verifyLine(adj.getName(), line):
+                    print(f"  -> {adj} with weight {weight}")
+        
+        print(f"number of stations is {i}")

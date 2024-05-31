@@ -186,7 +186,18 @@ def initStations(g, stations):
         Node("Macquarie Park", stations['Macquarie Park']),
         Node("North Ryde", stations['North Ryde']),
         Node("Chatswood", stations['Chatswood']),
-        Node("Milsons Point", stations['Milsons Point'])
+        Node("Milsons Point", stations['Milsons Point']),
+        Node("Sydenham", stations['Sydenham']),
+        Node("Tempe", stations['Tempe']),
+        Node("Kirrawee", stations['Kirrawee']),
+        Node("Miranda", stations['Miranda']),
+        Node("Gymea", stations['Gymea']),
+        Node("Caringbah", stations['Caringbah']),
+        Node("Woolooware", stations['Woolooware']),
+        Node("Cronulla", stations['Cronulla']),
+        Node("Flemington", stations['Flemington']),
+        Node("Strathfield", stations['Strathfield']),
+        Node("Homebush", stations['Homebush'])
     ]
 
     for n in nodes:

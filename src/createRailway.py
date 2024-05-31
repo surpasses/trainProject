@@ -15,232 +15,125 @@ class Line(Enum):
     T9 = 9
     M = 10
 
-
-def createT9Line(g):
-    # From Normanhurt to Gordon
-    route = ["Normanhurst", "Thornleigh", "Pennant Hills", "Beecroft", "Cheltenham", "Epping",
-            "Eastwood", "Denistone", "West Ryde", "Meadowbank", "Rhodes", "Concord West", "North Strathfield",
-            "Redfern", "Central", "Town Hall", "Wynyard", "Milsons Point", "North Sydney", "Waverton", "Wollstonecraft", "St Leonards",
-            "Artarmon", "Chatswood", "Roseville", "Lindfield", "Killara", "Gordon"]
-    
+def addEdges(g, route, line):
     prev_s = None
     for s in route:
-        g.updateLine(s, Line.T9)
+        g.updateLine(s, line)
         if prev_s is not None:
             g.addEdge(prev_s, s)
             g.addEdge(s, prev_s)
         
         prev_s = s
 
+def createT9Line(g):
+    # From Normanhurt to Gordon
+    route = ["Normanhurst", "Thornleigh", "Pennant Hills", "Beecroft", "Cheltenham", "Epping",
+            "Eastwood", "Denistone", "West Ryde", "Meadowbank", "Rhodes", "Concord West", "North Strathfield", "Strathfield", "Burwood",
+            "Redfern", "Central", "Town Hall", "Wynyard", "Milsons Point", "North Sydney", "Waverton", "Wollstonecraft", "St Leonards",
+            "Artarmon", "Chatswood", "Roseville", "Lindfield", "Killara", "Gordon"]
+    
+    addEdges(g, route, Line.T9)
 
 
-def createT8Line(stations):
-    None
-    # T8 SOUTH n Airport
-    # Leumeah = Node("Macarthur", stations['Macarthur'])
-    # Campbelltown = Node("Campbelltown", stations['Campbelltown'])
-    # Leumeah = Node("Leumeah", stations['Leumeah'])
-    # Minto = Node("Minto", stations['Minto'])
-    # Ingleburn = Node("Ingleburn", stations['Ingleburn'])
-    # MacquarieFields = Node("Macquarie Fields", stations['Macquarie Fields'])
-    # Glenfield = Node("Glenfield", stations['Glenfield'])
-    # Holsworthy = Node("Holsworthy", stations['Holsworthy'])
-    # EastHills = Node("East Hills", stations['East Hills'])
-    # Panania = Node("Panania", stations['Panania'])
-    # Revesby = Node("Revesby", stations['Revesby'])
-    # Padstow = Node("Padstow", stations['Padstow'])
-    # Riverwood = Node("Riverwood", stations['Riverwood'])
-    # Narwee = Node("Narwee", stations['Narwee'])
-    # BeverlyHills = Node("Beverly Hills", stations['Beverly Hills'])
-    # Kingsgrove = Node("Kingsgrove", stations['Kingsgrove'])
-    # BexleyNorth = Node("Bexley North", stations['Bexley North'])
-    # BardwellPark = Node("Bardwell Park", stations['Bardwell Park'])
-    # Turrella = Node("Turrella", stations['Turrella'])
-    # Tempe = Node("Tempe", stations['Tempe'])
-    # StPeters = Node("St Peters", stations['St Peters'])
-    # Ersineville = Node("Ersineville", stations['Ersineville'])
 
-    # #On the return
-    # OlympicPark = Node("Green Square", stations['Green Square'])
-    # Mascot = Node("Mascot", stations['Mascot'])
-    # Domestic = Node("Domestic", stations['Domestic'])
-    # International = Node("International", stations['International'])
-    # Wolli = Node("Wolli", stations['Wolli'])
+def createT8Line(g):
+    route = ["Macarthur", "Campbelltown", "Leumeah", "Minto", "Ingleburn", "Macquarie Fields",
+            "Glenfield", "Holsworthy", "East Hills", "Panania", "Revesby", "Padstow", "Riverwood",
+            "Narwee", "Beverly Hills", "Kingsgrove", "Bexley North", "Bardwell Park", "Turrella", "Wolli", "International", "Domestic",
+            "Mascot", "Green Square", "Central", "Museum", "St James", "Circular Quay", "Wynyard", "Town Hall", "Central", "Redfern", "Erskineville",
+             "St Peters", "Sydenham", "Turrella"
+    ]
+            
+    addEdges(g, route, Line.T8)
 
-def createT7Line(stations):
-    None
-    # OlympicPark = Node("Olympic Park", stations['Olympic Park'])
-    # Lidcombe = Node("Lidcombe", stations['Lidcombe'])
 
-def createT6Line(stations):
-    None
-    # Carlingford = Node("Carlingford", stations['Carlingford'])
-    # Telopea = Node("Telopea", stations['Telopea'])
-    # Dundas = Node("Dundas", stations['Dundas'])
-    # Rydalmere = Node("Rydalmere", stations['Rydalmere'])
-    # Camellia = Node("Camellia", stations['Camellia'])
-    # Rosehill = Node("Rosehill", stations['Rosehill'])
-    # Clyde = Node("Clyde", stations['Clyde'])
+def createT7Line(g):
+    route = ["Olympic Park", "Lidcombe"]
 
-def createT5Line(stations):
-    None
-    # Richmond = Node("Richmond", stations['Richmond'])
-    # EastRichmond = Node("East Richmond", stations['East Richmond'])
-    # Clarendon = Node("Clarendon", stations['Clarendon'])
-    # Windsor = Node("Windsor", stations['Windsor'])
-    # Mulgrave = Node("Mulgrave", stations['Mulgrave'])
-    # Vineyard = Node("Vineyard", stations['Vineyard'])
-    # Riverstone = Node("Riverstone", stations['Riverstone'])
-    # Schofields = Node("Schofields", stations['Schofields'])
-    # QuakersHill = Node("Quakers Hill", stations['Quakers Hill'])
-    # Marayong = Node("Marayong", stations['Marayong'])
-    # Blacktown = Node("Blacktown", stations['Blacktown'])
-    # SevenHills = Node("Seven Hills", stations['Seven Hills'])
-    # Toongabbie = Node("Toongabbie", stations['Toongabbie'])
-    # PendleHill = Node("Pendle Hill", stations['Pendle Hill'])
-    # Wentworthville = Node("Wentworthville", stations['Wentworthville'])
-    # Westmead = Node("Westmead", stations['Westmead'])
-    # Parramatta = Node("Parramatta", stations['Parramatta'])
-    # HarrisPark = Node("Harris Park", stations['Harris Park'])
-    # Merrylands = Node("Merrylands", stations['Merrylands'])
-    # Guildford = Node("Guildford", stations['Guildford'])
-    # Yennora = Node("Yennora", stations['Yennora'])
-    # Fairfield = Node("Fairfield", stations['Fairfield'])
-    # CanleyVale = Node("Canley Vale", stations['Canley Vale'])
-    # Cabramatta = Node("Cabramatta", stations['Cabramatta'])
-    # WarwickFarm = Node("Warwick Farm", stations['Warwick Farm'])
-    # Liverpool = Node("Liverpool", stations['Liverpool'])
-    # Casula = Node("Casula", stations['Casula'])
-    # Glenfield = Node("Glenfield", stations['Glenfield'])
-    # EdmondsonPark = Node("Edmondson Park", stations['Edmondson Park'])
-    # Leppington = Node("Leppington", stations['Leppingon'])
+    addEdges(g, route, Line.T7)
 
-def createT4Line(stations):
-    None
-    # BondiJunction = Node("Bondi Junction", stations['Bondi Junction'])
-    # Edgecliff = Node("Edgecliff", stations['Edgecliff'])
-    # KingsCross = Node("Kings Cross", stations['Kings Cross'])
-    # MartinPlace = Node("Martin Place", stations['Martin Place'])
-    # Arncliffe = Node("Arncliffe", stations['Arncliffe'])
-    # Banksia = Node("Banksia", stations['Banksia'])
-    # Rockdale = Node("Rockdale", stations['Rockdale'])
-    # Kogarah = Node("Kogarah", stations['Kogarah'])
-    # Carlton = Node("Carlton", stations['Carlton'])
-    # Allawah = Node("Allawah", stations['Allawah'])
-    # Hurstville = Node("Hurstville", stations['Hurstville'])
-    # Penshurst = Node("Penshurst", stations['Penshurst'])
-    # Mortdale = Node("Mortdale", stations['Mortdale'])
-    # Oatley = Node("Oatley", stations['Oatley'])
-    # Como = Node("Como", stations['Como'])
-    # Jannali = Node("Jannali", stations['Jannali'])
-    # Sutherland = Node("Sutherland", stations['Sutherland'])
-    # Loftus = Node("Loftus", stations['Loftus'])
-    # Engadine = Node("Engadine", stations['Engadine'])
-    # Heathcote = Node("Heathcote", stations['Heathcote'])
-    # Waterfall = Node("Waterfall", stations['Waterfall'])
+def createT5Line(g):
+    route = ["Richmond", "East Richmond", "Clarendon", "Windsor", "Mulgrave", "Vineyard",
+            "Riverstone", "Schofields", "Quakers Hill", "Marayong", "Blacktown", "Seven Hills", "Toongabbie",
+            "Pendle Hill", "Wentworthville", "Westmead", "Parramatta", "Harris Park", "Merrylands", "Guildford", "Yennora", "Fairfield",
+            "Canley Vale", "Cabramatta", "Warwick Farm", "Liverpool", "Casula", "Glenfield", "Edmondson Park", "Leppington"]
+    
+    addEdges(g, route, Line.T5)
 
-def createT3Line(stations):
-    None
-    # Carramar = Node("Carramar", stations['Carramar'])
-    # Villawood = Node("Villawood", stations['Villawood'])
-    # Leightonfield = Node("Leightonfield", stations['Leightonfield'])
-    # ChesterHill = Node("Chester Hill", stations['Chester Hil'])
-    # Sefton = Node("Sefton", stations['Sefton'])
-    # Birrong = Node("Birrong", stations['Birrong'])
-    # Yagoona = Node("Yagoona", stations['Yagoona'])
-    # Bankstown = Node("Bankstown", stations['Bankstown'])
-    # Punchbowl = Node("Punchbowl", stations['Punchbowl'])
-    # WileyPark = Node("Wiley Park", stations['Wiley Park'])
-    # Lakemba = Node("Lakemba", stations['Lakemba'])
-    # Belmore = Node("Belmore", stations['Belmore'])
-    # Campsie = Node("Campsie", stations['Campsie'])
-    # Canterbury = Node("Canterbury", stations['Canterbury'])
-    # HurlstonePark = Node("Hurlstone Park", stations['Hurlstone Park'])
-    # DulwichHill = Node("Dulwich Hill", stations['Dulwich Hill'])
-    # Marrickville = Node("Marrickville", stations['Marrickville'])
+def createT4Line(g):
+    route = ["Waterfall", "Heathcote", "Engadine", "Loftus", "Sutherland", "Jannali",
+            "Como", "Oatley", "Mortdale", "Mortdale", "Penshurst", "Hurstville", "Allawah",
+            "Carlton", "Kogarah", "Rockdale", "Banksia", "Arncliffe", "Wolli", "Tempe", "Sydenham", "Redfern", "Central", "Town Hall",
+            "Martin Place", "Kings Cross", "Edgecliff", "Bondi Junction"]
+    
+    route2 = [ "Sutherland", "Kirrawee", "Gymea", "Miranda", "Caringbah", "Woolooware", "Cronulla"]
+    
+    addEdges(g, route, Line.T4)
+    addEdges(g, route2, Line.T4)
 
-    # Lidcombe = Node("Lidcombe", stations['Lidcombe'])  
-    # Berala = Node("Berala", stations['Berala'])  
-    # RegentsPark = Node("Regents Park", stations['Regents Park'])  
+def createT3Line(g):
+    route = ["Liverpool", "Warwick Farm", "Cabramatta", "Carramar", "Villawood", "Leightonfield", "Chester Hill", "Sefton", "Birrong",
+            "Yagoona", "Bankstown", "Punchbowl", "Wiley Park", "Lakemba", "Belmore", "Campsie",
+            "Canterbury", "Hurlstone Park", "Dulwich Hill", "Marrickville", "Sydenham", "St Peters", "Erskineville", 
+            "Redfern", "Central", "Town Hall", "Wynyard", "Circular Quay", "St James",  "Museum", "Central"]
+    
+    route2 = [ "Birrong", "Regents Park", "Berala", "Lidcombe"]
+    
+    addEdges(g, route, Line.T3)
+    addEdges(g, route2, Line.T3)
 
-def createT2Line(stations):
-    None
-    # Parramatta = Node("Parramatta", stations['Parramatta'])
-    # HarrisPark = Node("Harris Park", stations['Harris Park'])
-    # Granville = Node("Granville", stations['Granville'])
-    # Clyde = Node("Clyde", stations['Clyde'])
-    # Auburn = Node("Auburn", stations['Auburn'])
-    # Lidcombe = Node("Lidcombe", stations['Lidcombe'])
-    # Burwood = Node("Burwood", stations['Burwood'])
-    # Croydon = Node("Croydon", stations['Croydon'])
-    # Ashfield = Node("Ashfield", stations['Ashfield'])
-    # SummerHill = Node("Summer Hill", stations['Summer Hill'])
-    # Lewisham = Node("Lewisham", stations['Lewisham'])
-    # Petersham = Node("Petersham", stations['Petersham'])
-    # Stanmore = Node("Stanmore", stations['Stanmore'])
-    # Newtown = Node("Newtown", stations['Newtown'])
-    # Macdonaldtown = Node("Macdonaldtown", stations['Macdonaldtown'])
+def createT2Line(g):
+    route = ["Leppington", "Edmondson Park", "Glenfield", "Casula", "Liverpool", "Wariwick Farm",
+            "Cabramatta", "Canley Vale", "Fairfield", "Yennora", "Guildford", "Merrylands", "Granville",
+            "Clyde", "Auburn", "Lidcombe", "Flemington", "Homebush", "Strathfield", "Burwood", "Croydon", "Ashfield", "Summer Hill", 
+            "Lewisham", "Petersham", "Stanmore", "Newtown", "Macdonaldtown", "Redfern", "Central", 
+            "Town Hall", "Wynyard", "Circular Quay", "St James",  "Museum", "Central"]
+    
+    route2 = [ "Granville", "Harris Park", "Parramatta"]
+    
+    addEdges(g, route, Line.T2)
+    addEdges(g, route2, Line.T2)
 
-def createT1Line(stations):
-    None
-    # Berowra = Node("Berowra", stations['Berowra'])
-    # MountKurringGai = Node("Mount Kurring-gai", stations['Mount Kurring-gai'])
-    # MountColah = Node("Mount Colah", stations['Mount Colah'])
-    # Asquith = Node("Asquith", stations['Asquith'])
-    # Hornsby = Node("Hornsby", stations['Hornsby'])
-    # Waitara = Node("Waitara", stations['Waitara'])
-    # Wahroonga = Node("Wahroonga", stations['Wahroonga'])
-    # Warrawee = Node("Warrawee", stations['Warrawee'])
-    # Turramurra = Node("Turramurra", stations['Turramurra'])
-    # Pymble = Node("Pymble", stations['Pymble'])
-    # Gordon = Node("Gordon", stations['Gordon'])
-    # Killara = Node("Killara", stations['Killara'])
-    # Lindfield = Node("Lindfield", stations['Lindfield'])
-    # Roseville = Node("Roseville", stations['Roseville'])
-    # Chatswood = Node("Chatswood", stations['Chatswood'])
-    # Artarmon = Node("Artarmon", stations['Artarmon'])
-    # StLeonards = Node("St Leonards", stations['St Leonards'])
-    # Wollstonecraft = Node("Wollstonecraft", stations['Wollstonecraft'])
-    # Waverton = Node("Waverton", stations['Waverton'])
-    # NorthSydney = Node("North Sydney", stations['North Sydney'])
+def createT1Line(g):
+    route = ["Richmond", "East Richmond", "Clarendon", "Windsor", "Mulgrave", "Vineyard",
+            "Riverstone", "Schofields", "Quakers Hill", "Marayong", "Blacktown", "Seven Hills", "Toongabbie",
+            "Pendle Hill", "Wentworthville", "Westmead", "Parramatta", "Harris Park", "Granville", "Clyde", "Auburn",
+            "Lidcombe", "Strathfield", "Redfern", "Central", "Town Hall", "Wynyard", "Milsons Point", "North Sydney", 
+            "Waverton", "Wollstonecraft", "St Leonards", "Artarmon", "Chatswood", "Roseville", "Lindfield", "Killara", "Gordon",
+            "Pymble", "Turramurra", "Warrawee", "Wahroonga", "Waitara", "Hornsby", "Asquith", "Mount Colah", 
+            "Mount Kurring-gai", "Berowra"]
 
-    # # towards richmond
+    route2 = ["Emu Plains", "Penrith", "Kingswood", "Werrington", "St Marys", "Mount Druitt",
+            "Rooty Hill", "Doonside", "Blacktown"]
+    
 
-    # # towards western
-    # Doonside = Node("Doonside", stations['Doonside'])
-    # RootyHill = Node("Rooty Hill", stations['Rooty Hill'])
-    # MountDruitt = Node("Mount Druitt", stations['Mount Druitt'])
-    # StMarys = Node("St Marys", stations['St Marys'])
-    # Werrington = Node("Werrington", stations['Werrington'])
-    # Kingswood = Node("Kingswood", stations['Kingswood'])
-    # Penrith = Node("Penrith", stations['Penrith'])
-    # EmuPlains = Node("Emu Plains", stations['Emu Plains'])
+    addEdges(g, route, Line.T1)
+    addEdges(g, route2, Line.T1)
 
-def createNMetro(stations):
-    None
-    # Tallawong = Node("Tallawong", stations['Tallawong'])
-    # RouseHill = Node("Rouse Hill", stations['Rouse Hill'])
-    # Kellyville = Node("Kellyville", stations['Kellyville'])
-    # BellaVista = Node("Bella Vista", stations['Bella Vista'])
-    # Norwest = Node("Norwest", stations['Norwest'])
-    # HillsShowground = Node("Hills Showground", stations['Hills Showground'])
-    # CastleHill = Node("Castle Hill", stations['Castle Hill'])
-    # Cherrybrook = Node("Cherrybrook", stations['Cherrybrook'])
-    # Epping = Node("Epping", stations['Epping'])
-    # MacquarieUniversity = Node("Macquarie University", stations['Macquarie University'])
-    # MacquariePark = Node("Macquarie Park", stations['Macquarie Park'])
-    # NorthRyde = Node("North Ryde", stations['North Ryde'])
-    # Chatswood = Node("Chatswood", stations['Chatswood'])
+def createMetro(g):
+    route = ["Tallawong", "Rouse Hill", "Kellyville", "Bella Vista", "Norwest", "Hills Showground",
+            "Castle Hill", "Cherrybrook", "Epping", "Macquarie University", "Macquarie Park", "North Ryde", "Chatswood"
+    ]
+    
+    addEdges(g, route, Line.M)
+
 
     
 
 def createNetwork(g, stations):
     initStations(g, stations)
     createT9Line(g)
-    g.display(Line.T9)
-    # createT8Line(stations)
+    createT8Line(g)
+    createT7Line(g)
+    createT5Line(g)
+    createT4Line(g)
+    createT3Line(g)
+    createT2Line(g)
+    createT1Line(g)
+    createMetro(g)
+    g.display(Line.M)
+    
     # createT7Line(stations)
-    # createT6Line(stations)
     # createT5Line(stations)
     # createT4Line(stations)
     # createT3Line(stations)
