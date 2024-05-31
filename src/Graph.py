@@ -2,16 +2,39 @@ class Graph:
     def __init__(self):
         self.nodes = {}
 
-    def add_node(self, node):
+    def addNode(self, node):
         if node.name not in self.nodes:
             self.nodes[node.name] = node
 
-    def add_edge(self, from_node, to_node, weight):
+    def addEdge(self, from_node, to_node):
         if from_node in self.nodes and to_node in self.nodes:
-            self.nodes[from_node].add_adjacent(self.nodes[to_node], weight)
+            self.nodes[from_node].addAdjacent(self.nodes[to_node])
+    
+    def getNode(self, name):
+        if name in self.nodes:
+            return self.nodes[name]
+        return None
+    
+    def updateLine(self, node, line):
+        if node in self.nodes:
+            self.nodes[node].addLine(line)
+    
+    
+    # checks if given station is in the network of a specified line
+    def verifyLine(self, name, line):
+        node = self.getNode(name)
+        if node and node.checkLine(line):
+            return True
+        return False
 
-    def display_graph(self):
+    def displayWhole(self):
         for node in self.nodes.values():
             print(node)
             for adj, weight in node.adjacent.items():
                 print(f"  -> {adj} with weight {weight}")
+
+    def display(self, line):
+        for node in self.nodes.values():
+            if not node.checkLine(line):
+                continue
+            print(node)
