@@ -128,4 +128,15 @@ def createNetwork(g, stations):
     createT2Line(g)
     createT1Line(g)
     createMetro(g)
-    g.displayWhole()
+    
+    toNode = "Central"
+    fromNode = "Central"
+    distance, visited = g.dijkstra(fromNode, toNode)
+
+    print(f"The shortest distance from {toNode} to {fromNode} is {distance} km")
+    for i, s in enumerate(visited):
+        if i != len(visited) - 1:
+            print(f"{s} -> ", end = "")
+        else:
+            print(s)
+

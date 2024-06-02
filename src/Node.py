@@ -24,10 +24,18 @@ class Node:
 
     def addAdjacent(self, node):
         distance = geodesic(self.location, node.location).km
-        self.adjacent[node] = distance
+        self.adjacent[node.name] = distance
+    
+    def getDistance(self, node):
+        if node in self.adjacent:
+            return self.adjacent[node]
+        return None
 
     def getName(self):
         return self.name
+    
+    def getNeighbours(self):
+        return self.adjacent
 
     def __str__(self):
-        return f"{self.name} at coordinates ({self.location[0]}, {self.location[1]})"
+        return self.name

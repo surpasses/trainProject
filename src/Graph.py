@@ -1,3 +1,5 @@
+import heapq
+
 class Graph:
     def __init__(self):
         self.nodes = {}
@@ -14,7 +16,13 @@ class Graph:
     def getNode(self, name):
         if name in self.nodes:
             return self.nodes[name]
+        print('node doesnt exist')
         return None
+
+    def getEdges(self, name):
+        if name in self.nodes:
+            return self.nodes[name].getNeighbours()
+    
     
     def updateLine(self, node, line):
         if node in self.nodes:
@@ -46,3 +54,47 @@ class Graph:
                     print(f"  -> {adj} with weight {weight}")
         
         print(f"number of stations is {i}")
+    
+
+    def dijkstra(self, from_node, to_node):
+        if from_node not in self.nodes and to_node not in self.nodes:
+            return 
+        
+        dist = { node: float('infinity') for node in self.nodes }
+        prev = { node: -1 for node in self.nodes }
+
+        dist[from_node] = 0
+        priority_queue = [(0, from_node)]
+
+        
+        while priority_queue:
+            current_dist, current_node = heapq.heappop(priority_queue)
+            if current_dist > dist[current_node]:
+                continue
+
+            # check neighbours
+    
+            for neighbour in self.getEdges(current_node):
+                distance = current_dist + self.nodes[neighbour].getDistance(current_node)
+
+                # Only consider this new path if it's better than any path we've
+                # previously found.
+                if distance < dist[neighbour]:
+                    dist[neighbour] = distance
+                    prev[neighbour] = current_node
+                    heapq.heappush(priority_queue, (distance, neighbour))
+        
+        # gets the list of visited stations in the shortest path
+        list = [to_node]
+        station = to_node
+        while station != from_node:
+            station = prev[station]
+            list.append(station)
+
+
+        return (dist[to_node], list)
+
+        
+
+
+
