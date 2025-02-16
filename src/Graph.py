@@ -73,7 +73,6 @@ class Graph:
                 continue
 
             # check neighbours
-    
             for neighbour in self.getEdges(current_node):
                 distance = current_dist + self.nodes[neighbour].getDistance(current_node)
 

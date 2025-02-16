@@ -1,7 +1,7 @@
 from Node import Node
 from Graph import Graph
 from enum import Enum
-from src.Station import initStations
+from src.Station import initGraphStations
 
 class Line(Enum):
     T1 = 1
@@ -118,7 +118,7 @@ def createMetro(g):
 
 
 def createNetwork(g, stations):
-    initStations(g, stations)
+    initGraphStations(g, stations)
     createT9Line(g)
     createT8Line(g)
     createT7Line(g)
@@ -130,7 +130,7 @@ def createNetwork(g, stations):
     createMetro(g)
     
     toNode = "Central"
-    fromNode = "Central"
+    fromNode = "Cabramatta"
     distance, visited = g.dijkstra(fromNode, toNode)
 
     print(f"The shortest distance from {toNode} to {fromNode} is {distance} km")
