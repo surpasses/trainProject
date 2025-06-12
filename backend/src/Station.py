@@ -56,7 +56,7 @@ def initDbStations(stations):
        {"name" : "Turrella", "location" : stations['Turrella']},
        {"name" : "Tempe", "location" : stations['Tempe']},
        {"name" : "St Peters", "location" : stations['St Peters']},
-       {"name" : "Ersineville", "location" : stations['Ersineville']},
+       {"name" : "Erskineville", "location" : stations['Ersineville']},
        {"name" : "Green Square", "location" : stations['Green Square']},
        {"name" : "Mascot", "location" : stations['Mascot']},
        {"name" : "Domestic", "location" : stations['Domestic']},

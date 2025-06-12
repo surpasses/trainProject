@@ -129,7 +129,7 @@ def createNetwork(g, stations):
     createT1Line(g)
     createMetro(g)
     
-    toNode = "Central"
+    toNode = "Erskineville"
     fromNode = "Cabramatta"
     distance, visited = g.dijkstra(fromNode, toNode)
 
