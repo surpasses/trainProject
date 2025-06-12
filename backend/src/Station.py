@@ -1,5 +1,5 @@
-from Node import Node
-from Graph import Graph
+from .Node import Node
+from .Graph import Graph
 
 def initGraphStations(g, stations):
     """
