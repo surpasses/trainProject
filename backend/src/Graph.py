@@ -56,6 +56,7 @@ class Graph:
         print(f"number of stations is {i}")
     
 
+    # Returns tuple contoniang the distance and list of station in string form
     def dijkstra(self, from_node, to_node):
         if from_node not in self.nodes and to_node not in self.nodes:
             return 

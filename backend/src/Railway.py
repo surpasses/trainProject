@@ -116,8 +116,9 @@ def createMetro(g):
     
     addEdges(g, route, Line.M)
 
-
-def createNetwork(g, stations):
+# Returns the graph with existing network established
+def createNetwork(stations):
+    g = Graph()
     initGraphStations(g, stations)
     createT9Line(g)
     createT8Line(g)
@@ -129,9 +130,16 @@ def createNetwork(g, stations):
     createT1Line(g)
     createMetro(g)
     
+    return g
+
+def findShortestPath(g, toNode, fromNode):
     toNode = "Erskineville"
     fromNode = "Cabramatta"
     distance, visited = g.dijkstra(fromNode, toNode)
+
+    if distance is None or visited is None:
+        print("Invalid stations")
+        return
 
     print(f"The shortest distance from {toNode} to {fromNode} is {distance} km")
     for i, s in enumerate(visited):
