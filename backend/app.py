@@ -28,7 +28,7 @@ def get_graph():
         bounds = {"minX": min(all_x), "maxX": max(all_x), "minY": min(all_y), "maxY": max(all_y)}
 
         graph_cache = {"nodedata": nodedata, "graphdata": graphdata, "bounds": bounds}
-        return graph_cache
+        return jsonify(graph_cache)
 
 @app.route('/api/stations')
 def stations():
