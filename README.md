@@ -1,4 +1,4 @@
-# NSW Train Network Route Visualizer
+# NSW Train Network Route Visualiser
 
 An interactive route finder for the NSW Train & Metro network. Uses Dijkstra's and A* algorithms to find the shortest path between stations, with a full screen map visualisation detailing the stations selected and the distance between them.
 
@@ -102,7 +102,7 @@ An interactive route finder for the NSW Train & Metro network. Uses Dijkstra's a
 
 Station location data is sourced from **Transport for NSW Open Data Hub**:
 
-- **Dataset**: Train Station Entrances
+- **Dataset**: Train Station Entrances 2020
 - **URL**: https://data.nsw.gov.au/data/dataset/2-train-station-entrance-locations/resource/a29a6bc6-a01b-42cc-aff4-c1d570958e68
 
 This data includes latitude and longitude coordinates for all NSW train station entrances.
