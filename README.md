@@ -103,12 +103,7 @@ An interactive route finder for the NSW Train & Metro network. Uses Dijkstra's a
 Station location data is sourced from **Transport for NSW Open Data Hub**:
 
 - **Dataset**: Train Station Entrances
-- **Resource ID**: `257179b0-aa8c-4172-8d76-9c77a1941a68`
-- **URL**: https://opendata.transport.nsw.gov.au/
-- **License**: [Creative Commons Attribution 4.0](https://creativecommons.org/licenses/by/4.0/)
+- **URL**: https://data.nsw.gov.au/data/dataset/2-train-station-entrance-locations/resource/a29a6bc6-a01b-42cc-aff4-c1d570958e68
 
-This data includes latitude and longitude coordinates for all NSW train station entrances and is provided by Transport for NSW under their Open Data policy.
+This data includes latitude and longitude coordinates for all NSW train station entrances.
 
-## License
-
-MIT
