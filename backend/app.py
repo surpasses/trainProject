@@ -4,7 +4,7 @@ from src.database import getStations
 from src.Railway import createNetwork
 
 app = Flask(__name__)
-CORS(app, origins=["https://train-project-six.vercel.app/", "http://localhost:5173"])
+CORS(app, origins=["https://train-project-six.vercel.app", "http://localhost:5173"])
 port = 5100
 
 # Initialize graph once at startup
