@@ -2,6 +2,10 @@
 
 An interactive route finder for the NSW Train & Metro network. Uses Dijkstra's and A* algorithms to find the shortest path between stations, with a full screen map visualisation detailing the stations selected and the distance between them.
 
+### Live
+- Frontend (Vercel): https://train-project-six.vercel.app
+- Backend (Render): https://trainproject-backend.onrender.com
+
 ## Tech Stack
 
 - **Frontend**: React.js + Tailwind CSS + Konva (canvas rendering)
