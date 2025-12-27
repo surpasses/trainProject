@@ -161,3 +161,11 @@ cython_debug/
 #.idea/
 .DS_Store
 repomix-output.xml
+
+# Environment files (already covered by .env above, but being explicit)
+.env.local
+.env.*.local
+*.env
+
+# Node modules (in case frontend is at root level)
+node_modules/
